@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>实现输入框最多输入n个字符</title>
+	</head>
+	<body>
+		<div>
+			<input type="text" id="input" />
+			<script>
+				//设置输出框最大长度
+				function setInputMaxLen(el, n) {
+					if (n < 0) {
+						return;
+					}
+					function handle(event) {
+						const target = event.target;
+						target.value = target.value.slice(0, n);
+					}
+					el.addEventListener("input", handle, false);
+					return function () {
+						el.removeEventListener("input", handle, false);
+					};
+        }
+        // test
+				let el = document.getElementById("input");
+				let unwatch = setInputMaxLen(el, 10);
+				setTimeout(() => {
+					console.log(`10秒后取消限制`);
+					unwatch();
+				}, 10000);
+			</script>
+		</div>
+	</body>
+</html>

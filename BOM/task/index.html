@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>使用正则获取url参数</title>
+	</head>
+	<body>
+		<div>
+			<script>
+        // 返回参数对象
+				function getUrlParams(text) {
+					let res = {};
+					if (text == "") {
+						return res;
+					}
+					const regExp = /([^?=&]+)=([^&]*)/gm;
+					let cxArr, key, val, lastKey, lastVal;
+					text.replace(regExp, function (cx) {
+						cxArr = cx.split("=");
+						key = cxArr[0];
+						val = cxArr[1];
+						//支持数组
+						if (lastKey == key) {
+							if (Array.isArray(res[key])) {
+								res[key].push(val);
+							} else {
+								res[key] = [lastVal, val];
+							}
+						} else {
+							res[key] = val;
+						}
+						lastKey = key;
+						lastVal = val;
+					});
+					return res;
+        }
+        //test
+				let text = "?a=1&a=2&b=3&c=4";
+				let res = getUrlParams(text);
+				console.log(res);
+			</script>
+		</div>
+	</body>
+</html>
