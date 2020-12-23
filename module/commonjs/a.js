@@ -1,10 +1,19 @@
-const { a, o } = require("./b.js");
-console.log(a, o);
-
-const { a: b, o: o1 } = require("./b.js");
-console.log(b, o1);
-// require是标准的js函数，require的模块只会加载一次
+let a = 1;
+const add = b => {
+	return (a = a + b);
+};
+const getA = () => {
+	return a;
+};
+module.exports = {
+	a,
+	o: {
+		a,
+	},
+	add,
+	getA,
+};
+a = 2;
 setTimeout(() => {
-  require("./c.js");
-  console.log(o.age);
-}, 1000);
+	console.log(`异步后的a`, a);
+}, 0);

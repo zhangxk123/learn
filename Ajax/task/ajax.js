@@ -24,8 +24,15 @@ export default function ajax(url, method, data, headers) {
 					loaded: e.loaded,
 					total: e.total,
 					precent: (e.total / e.loaded).toFixed(4), // 默认保留4位小数
-				}
+				},
 			});
+		};
+
+		xhr.ontimeout = function () {
+			reject(Error("timeout"));
+		};
+		xhr.onerror = function (error) {
+			reject(error);
 		};
 		xhr.open(url, method, true);
 		for (let key in headers) {

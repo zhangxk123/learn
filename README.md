@@ -28,6 +28,9 @@
 1. XMLHttpRequest
 2. 跨域
 3. cors
+4. 代理
+5. jsonp
+6. fetch
 
 ## bom
 
@@ -44,3 +47,8 @@
 4. es6 calss extend
 
 ## 作用域、this、闭包
+
+1. 词法作用域
+2. 执行上下文
+3. 闭包
+4. this
