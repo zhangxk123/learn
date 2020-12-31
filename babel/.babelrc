@@ -1,0 +1,24 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "ie": 9,
+          "chrome": 58
+        },
+        "useBuiltIns": "usage",
+        "corejs": "3"
+      }
+    ]
+  ],
+  "plugins": [
+    ["@babel/plugin-transform-runtime"]
+    // [
+    //   "./myPlugin",
+    //   {
+    //     "text": "zhushi"
+    //   }
+    // ]
+  ]
+}
