@@ -1,0 +1,18 @@
+doctype html
+
+head
+  title
+body
+  each article in articles
+    section.content-item#id
+      h3.title #{article.title} 
+  form#form 
+    label(for='name') name
+      input(type='text',id='name')
+    br
+    label(for='password') password
+      input(type='password',id='password')
+    br
+    button#submit(type='button') login
+  
+  script(src="./scripts/index.js")
