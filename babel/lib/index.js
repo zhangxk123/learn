@@ -1,7 +1,4 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-var _a = _interopRequireDefault(require("./a"));
-
-(0, _a.default)([1, 2, 3]);
+var arr3 = [1, 2, 3, 4];
+console.log(arr3[arr3.length - 1]);
