@@ -13,12 +13,8 @@
     ]
   ],
   "plugins": [
-    ["@babel/plugin-transform-runtime"]
-    // [
-    //   "./myPlugin",
-    //   {
-    //     "text": "zhushi"
-    //   }
-    // ]
+    // ["@babel/plugin-transform-runtime"],
+    // ["./myPlugin"]
+    ["negative-length"]
   ]
 }

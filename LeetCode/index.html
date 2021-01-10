@@ -1,11 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <script src="./13.罗马数字.js"></script>
-</body>
+<html>
+    <head>
+        <title>this is a test</title>
+        <script src="https://static.runoob.com/assets/jquery/2.0.3/jquery.min.js"></script>
+    </head>
+    <body>
+      <!-- <form action=""> -->
+        <input type="file" id="testId"/>
+        <button type="button" id="btn" class="test">click me</button>
+      <!-- </form> -->
+        <script>
+            function toClick(){
+                $('#testId').trigger('click')
+            }
+            const getEL = $('#testId');
+            getEL.on("click",function(){
+                console.log("段落被点击了");
+            });
+
+            function tirggerFileInput(cb) {
+              $.ajax({
+                  url : 'https://123/',
+                  method  : 'GET',
+                  beforeSend:function(){
+                    cb()
+                    return false
+                  }
+                });
+            }
+            $(document).ready(function(){
+                $('body').on('click', '.test', function(e){
+                    $.ajax({
+                        url : 'https://jsonplaceholder.typicode.com/posts/',
+                        method  : 'GET',
+                        dataType : 'jsonp', 
+                        success : function(){
+                          tirggerFileInput(toClick)
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
 </html>
