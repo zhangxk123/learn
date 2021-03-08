@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>miniprogram</title>
+  <script src="node_modules/template_js/dist/index.aio.min.js"></script>
+  <script src="./event.js"></script>
+  <script src="./main.js"></script>
+
+</head>
+
+<body>
+  <div id="app">
+    <div id="tempList"></div>
+  </div>
+  <script type="text/html" id="temp1">
+    <ul>
+      <% for(let i=0;i<list.length;i++){ %>
+        <li>
+          <p>
+            <%= list[i].name %>
+          </p>
+          <p>
+            <%= list[i].sex %>
+          </p>
+        </li>
+        <% }%>
+    </ul></script>
+  <script>
+    let data = [{ name: '张三', sex: '男' }, { name: '李四', sex: '女' }]
+    let temp1 = document.getElementById("temp1");
+    let tempList = document.getElementById("tempList");
+    tempList.innerHTML = template(temp1.innerHTML, { list: data })
+  </script>
+</body>
+
+</html>
