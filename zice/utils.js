@@ -86,6 +86,3 @@ function unique2(arr){
   return res
 }
 //sort 冒泡 快排
-
-
-//

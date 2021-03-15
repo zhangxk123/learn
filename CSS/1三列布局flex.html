@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      div {
+        height: 100%;
+      }
+
+      .container {
+        display: flex;
+      }
+
+      .content {
+        flex: 1 1;
+        order: 2;
+        background: #f00;
+      }
+
+      .left {
+        flex: 0 0 200px;
+        order: 1;
+        background: #0f0;
+      }
+
+      .right {
+        flex: 0 0 300px;
+        order: 3;
+        background: #00f;
+      }
+      /*清除浮动 */
+      .clearfix::after{
+        content:'';
+        clear: both;
+        display: block;
+        height: 0;
+      }
+      .clearfix{
+        zoom:1
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">hello world</div>
+      <div class="left">你好</div>
+      <div class="right">xxx</div>
+    </div>
+  </body>
+</html>
+
