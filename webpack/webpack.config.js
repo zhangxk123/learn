@@ -1,48 +1,46 @@
 module.exports = {
-	mode: "",
-	context: path.resolve(__dirname, 'src'), //默认使用当前目录也就是根目录
-	entry: {
-		main: "./main.js",
-		home: { import: "./contact.js", filename: "pages/[name][ext]" },
-		//入口名可以动态改变，根据output.filename
-	},
-	target: "node", // default web 目标代码环境的配置
-	output: {
-		// library: 'someLibName', 打包成lib的配置
-		// libraryTarget: 'umd',
-		path: "",
-		filename: "",
-		publicPath: "",
-	},
-	devtool: false,
-	//loader
-	module: {
-		rules: [
-			{
-				test: "",
-				use: [
-					{
-						loader: "", //style-loader!postcss-loader!css-loader!less-loader  倒序执行
-						options: "",
-					},
-				],
-			},
-		],
-	},
-	resolve: {
-		alias: {}, // 别名
-		extensions: [], //模块加载后缀优先级
-	},
-	optimization: {},
-	plugins: [],
-	devServer: {
-    hotOnly:true,//可以不让其刷新
-    historyApiFallback:true//history mode
+  mode: "",
+  context: path.resolve(__dirname, "src"), //默认使用当前目录也就是根目录
+  entry: {
+    main: "./main.js",
+    home: { import: "./contact.js", filename: "pages/[name][ext]" },
+    //入口名可以动态改变，根据output.filename
   },
-	externals: {}, //将依赖文件从产出代码中剔除，适合lib开发
+  target: "node", // default web 目标代码环境的配置
+  output: {
+    // library: 'someLibName', 打包成lib的配置
+    // libraryTarget: 'umd',
+    path: "",
+    filename: "",
+    publicPath: "",
+  },
+  devtool: false,
+  //loader
+  module: {
+    rules: [
+      {
+        test: "",
+        use: [
+          {
+            loader: "", //style-loader!postcss-loader!css-loader!less-loader  倒序执行
+            options: "",
+          },
+        ],
+      },
+    ],
+  },
+  resolve: {
+    alias: {}, // 别名
+    extensions: [], //模块加载后缀优先级
+  },
+  optimization: {},
+  plugins: [],
+  devServer: {
+    hotOnly: true, //可以不让其刷新
+    historyApiFallback: true, //history mode
+  },
+  externals: {}, //将依赖文件从产出代码中剔除，适合lib开发
 };
-
-
 
 // 3种hash
 // 那么webpack打包也是如此，生产相应的版本号，具体的hash有三种

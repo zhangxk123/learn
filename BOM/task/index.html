@@ -1,45 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>使用正则获取url参数</title>
-	</head>
-	<body>
-		<div>
-			<script>
-				// 返回参数对象
-				function getUrlParams(text) {
-					let res = {};
-					if (text == "") {
-						return res;
-					}
-					const regExp = /([^?=&]+)=([^&]*)/g;
-					let lastKey, lastVal;
-					text.replace(regExp, function (match, $1, $2) {
-						console.log(match, $1, $2);
-						//支持数组
-						if (lastKey == $1) {
-							if (Array.isArray(res[$1])) {
-								res[$1].push($2);
-							} else {
-								res[$1] = [lastVal, $2];
-							}
-						} else {
-							res[$1] = $2;
-						}
-						lastKey = $1;
-						lastVal = $2;
-					});
-					return res;
-				}
-				//test
-				let text = "?a=1&a=2&b=3&c=4";
-				let text2 = "?a=1&b=3&c=4&a=2";
-				let res = getUrlParams(text);
-				let res2 = getUrlParams(text2);
-				console.log(res, res2);
-			</script>
-		</div>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用正则获取url参数</title>
+  </head>
+
+  <body>
+    <div>
+      <script>
+        // 返回参数对象
+        function getUrlParams(text) {
+          let res = {};
+          if (text == "") {
+            return res;
+          }
+          const regExp = /([^?=&]+)=([^&]*)/g;
+          let lastKey, lastVal;
+          text.replace(regExp, function (match, $1, $2) {
+            console.log(match, $1, $2);
+            //支持数组
+            if (lastKey == $1) {
+              if (Array.isArray(res[$1])) {
+                res[$1].push($2);
+              } else {
+                res[$1] = [lastVal, $2];
+              }
+            } else {
+              res[$1] = $2;
+            }
+            lastKey = $1;
+            lastVal = $2;
+          });
+          return res;
+        }
+        //test
+        let text = "?a=1&a=2&b=3&c=4";
+        let text2 = "?a=1&b=3&c=4&a=2";
+        let res = getUrlParams(text);
+        let res2 = getUrlParams(text2);
+        console.log(res, res2);
+      </script>
+    </div>
+  </body>
 </html>

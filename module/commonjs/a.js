@@ -17,3 +17,4 @@ a = 2;
 setTimeout(() => {
 	console.log(`异步后的a`, a);
 }, 0);
+console.log(this===exports); //true
