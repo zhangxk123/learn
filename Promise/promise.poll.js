@@ -42,3 +42,29 @@ Promise.poll(p, 3).then((data) => {
 }).catch((err) => {
   console.log('尝试3次失败');
 });
+
+/**
+ * @param {*} req
+ * @param {number} [count=0]
+ * @param {*} cb
+ * @return {*} 
+ */
+function poll(req, count = 0, cb) {
+  return function (...args) {
+    const context = this;
+    return new Promise((resolve, reject) => {
+      const run = function () { 
+        req.call(context, ...args).then(res => {
+          resolve(res)
+        }).catch(err => {
+          if (count === 0) {
+            reject(err)
+          } else {
+            count--;
+            run()
+          }
+        })
+      }
+    }).then(cb, cb)
+  }
+}

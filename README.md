@@ -31,6 +31,7 @@
 4. 代理
 5. jsonp
 6. fetch
+7. navigator.sendBeacon
 
 ## bom
 
